@@ -26,11 +26,12 @@ Function Write-Log {
 #---------------
 #---- Variables
 #---------------
-$LogDir = "$env:USERPROFILE\ScriptLog"
+$LogDir = "$env:USERPROFILE\ScriptLogs"
 $LogFile = "$LogDir\SetupDevOpsBoxWin10.ps1.log"
 #----------------
 #---- Main Script
 #----------------
 Write-Log "--------------------------------------------------"
 Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
+
 
