@@ -7,7 +7,6 @@
 #--------------
 #---- Functions
 #--------------
-
 Function Write-Log {
     Param (
         [Parameter(Mandatory = $True, Position = 0)] [String] $Message
