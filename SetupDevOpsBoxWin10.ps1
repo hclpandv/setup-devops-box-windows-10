@@ -4,7 +4,9 @@
 #         Will Try to write DSC and Ansible playbook for the same
 #---------------------------------------------------------------------
 
+#--------------
 #---- Functions
+#--------------
 
 Function Write-Log {
     Param (
@@ -21,12 +23,14 @@ Function Write-Log {
     # Write to log file
     Add-Content -Path $LogFile -Value $Log
 }
-
+#---------------
 #---- Variables
+#---------------
 $LogDir = "$env:USERPROFILE\ScriptLog"
 $LogFile = "$LogDir\SetupDevOpsBoxWin10.ps1.log"
-
+#----------------
 #---- Main Script
+#----------------
+Write-Log "--------------------------------------------------"
 Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
 
-Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
