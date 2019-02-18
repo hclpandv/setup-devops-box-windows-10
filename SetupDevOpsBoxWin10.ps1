@@ -23,7 +23,8 @@ Function Write-Log {
 }
 
 #---- Variables
-$LogDir = "$env:TEMP\SetupDevOpsBoxWin10.ps1.log"
+$LogDir = "$env:TEMP"
+$LogFile = "$LogDir\SetupDevOpsBoxWin10.ps1.log"
 
 #---- Main Script
 Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
