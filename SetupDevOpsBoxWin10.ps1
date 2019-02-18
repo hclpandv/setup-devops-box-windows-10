@@ -23,7 +23,7 @@ Function Write-Log {
 }
 
 #---- Variables
-$LogDir = "$env:USERPROFILE"
+$LogDir = "$env:USERPROFILE\ScriptLog"
 $LogFile = "$LogDir\SetupDevOpsBoxWin10.ps1.log"
 
 #---- Main Script
