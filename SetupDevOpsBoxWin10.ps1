@@ -36,7 +36,13 @@ Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
 # Installing chocolatey
 Write-Log "Installing chocolatey"
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# Installing git
+choco install git
+# Installing Oracle Box
+choco install virtualbox
 # Installing ConEmu
 choco install conemu
+# Installing Insomnia rest api client
+choco install insomnia-rest-api-client
 
 
