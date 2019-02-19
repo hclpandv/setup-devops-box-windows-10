@@ -38,8 +38,10 @@ Write-Log "Installing chocolatey"
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 # Installing git
 choco install git
-# Installing Oracle Box
+# Installing Oracle virtBox
 choco install virtualbox
+# Installing vagrant
+chco install vagrant
 # Installing ConEmu
 choco install conemu
 # Installing Insomnia rest api client
