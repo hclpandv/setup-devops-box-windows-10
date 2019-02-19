@@ -27,10 +27,16 @@ Function Write-Log {
 #---------------
 $LogDir = "$env:USERPROFILE\ScriptLogs"
 $LogFile = "$LogDir\SetupDevOpsBoxWin10.ps1.log"
+$TargetOsVersion = (Get-WmiObject -Class Win32_OperatingSystem).caption
 #----------------
 #---- Main Script
 #----------------
 Write-Log "--------------------------------------------------"
 Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
+# Installing chocolatey
+Write-Log "Installing chocolatey"
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# Installing ConEmu
+choco install conemu
 
 
