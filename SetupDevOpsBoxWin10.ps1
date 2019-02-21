@@ -62,15 +62,16 @@ else{
 
 # Installation of packages from the chocolatey repository
 $Packages = @(
-    'sublimetext3'
-    #'virtualbox'
-    #'vagrant'
-    #'insomnia-rest-api-client'
-
+    'git'
+    'virtualbox'
+    'vagrant'
+    'conemu'
+    'insomnia-rest-api-client'
 )
 
 ForEach ($PackageName in $Packages){
     Write-Log "Installing chocolatey package: $PackageName"
+    Write-Log "************************** chocolatey logs below : [$PackageName] ******************************"
     try {
         choco install $PackageName -y --log-file $LogFile
     }
@@ -79,21 +80,7 @@ ForEach ($PackageName in $Packages){
         Write-Log "The setup script will exit now. Please investigate the issue and try executing the script later. "
         throw "Error Found!! Existing.."
     }
+    Write-Log "************************** chocolatey logs Completed : [$PackageName] ******************************"
 }
 
-
-<#
-
-# Installing git
-choco install git
-# Installing Oracle virtBox
-choco install virtualbox
-# Installing vagrant
-chco install vagrant
-# Installing ConEmu
-choco install conemu
-# Installing Insomnia rest api client
-choco install insomnia-rest-api-client
-
-#>
 
