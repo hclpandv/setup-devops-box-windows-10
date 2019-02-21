@@ -9,6 +9,8 @@
 #---------------
 [string]$LogDir = "$env:USERPROFILE\ScriptLogs"
 [string]$LogFile = "$LogDir\SetupDevOpsBoxWin10.ps1.log"
+[Security.Principal.WindowsIdentity]$CurrentProcessToken = [Security.Principal.WindowsIdentity]::GetCurrent()
+[boolean]$IsAdmin = [boolean]($CurrentProcessToken.Groups -contains [Security.Principal.SecurityIdentifier]'S-1-5-32-544')
 [psobject]$envOS = Get-WmiObject -Class 'Win32_OperatingSystem' -ErrorAction 'SilentlyContinue'
 [string]$envOSName = $envOS.Caption.Trim()
 [boolean]$Is64Bit = [boolean]((Get-WmiObject -Class 'Win32_Processor' -ErrorAction 'SilentlyContinue' | Where-Object { $_.DeviceID -eq 'CPU0' } | Select-Object -ExpandProperty 'AddressWidth') -eq 64)
@@ -40,11 +42,11 @@ Write-Log "--------------------------------------------------"
 Write-Log "Starting to Setup Windows 10 as DevOps Workstation"
 
 # Checking Pre-Requisites
-if(($envOSName -like "*Windows 10*") -and ($Is64Bit) -and ($PSVersionTable.PSVersion.Major -ge 5)){
+if(($envOSName -like "*Windows 10*") -and ($Is64Bit) -and ($PSVersionTable.PSVersion.Major -ge 5) -and ($IsAdmin)){
     Write-Log "Pre-Requisites are met. Setup process will progress. This process will involve multiple installation, please have patience"
 }
 else{
-    Write-Log "Pre-Requisites are met. Setup process will progress. This process will involve multiple installation, please have patience"
+    Write-Log "Pre-Requisites are NOT met. Exiting.."
     throw "Existing from the setup process"
 }
 
