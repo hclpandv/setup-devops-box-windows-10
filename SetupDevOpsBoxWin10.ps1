@@ -15,6 +15,14 @@
 [string]$envOSName = $envOS.Caption.Trim()
 [boolean]$Is64Bit = [boolean]((Get-WmiObject -Class 'Win32_Processor' -ErrorAction 'SilentlyContinue' | Where-Object { $_.DeviceID -eq 'CPU0' } | Select-Object -ExpandProperty 'AddressWidth') -eq 64)
 [boolean]$ChocoInstalled = [boolean](Get-Command choco.exe -ErrorAction SilentlyContinue)
+$PreReqMsg = @"
+    Pre-Requisite for this setup
+    ----------------------------
+    * Windows 10 x64 OS
+    * PowerShell v5 or Above
+    * Adminstrative access to workstation    
+
+"@
 
 #--------------
 #---- Functions
@@ -47,6 +55,7 @@ if(($envOSName -like "*Windows 10*") -and ($Is64Bit) -and ($PSVersionTable.PSVer
 }
 else{
     Write-Log "Pre-Requisites are NOT met. Exiting.."
+    Write-Host -ForegroundColor DarkCyan -Object $PreReqMsg
     throw "Existing from the setup process"
 }
 
