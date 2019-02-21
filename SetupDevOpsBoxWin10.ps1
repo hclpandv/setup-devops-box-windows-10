@@ -56,8 +56,8 @@ if(($envOSName -like "*Windows 10*") -and ($Is64Bit) -and ($PSVersionTable.PSVer
 else{
     Write-Log "Pre-Requisites are NOT met. Exiting.."
     Write-Host -ForegroundColor DarkCyan -Object $PreReqMsg
-    #throw "Existing from the setup process"
-    exit 1
+    throw "Existing from the setup process"
+    #exit 1
 }
 
 
