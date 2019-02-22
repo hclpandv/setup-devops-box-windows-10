@@ -88,7 +88,7 @@ ForEach ($PackageName in $Packages){
     catch{
         Write-Log "Error while Installing chocolatey package: $PackageName"
         Write-Log "The setup script will exit now. Please investigate the issue and try executing the script later. "
-        throw "Error Found!! Existing.."
+        throw "Error Found!! Exiting.."
     }
     Write-Log "************************** chocolatey logs Completed : [$PackageName] ******************************"
 }
