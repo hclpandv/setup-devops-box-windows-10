@@ -146,7 +146,7 @@ if(Test-Path $ScriptDir\wls_provisioning){
 else{ Write-Log "wsl_provisioing folder not found on the script root, please validate"}
 
 # Play the ansible playbook
-ubuntu1804.exe run ansible-playbook -i ./wls_provisioning/hosts ./wls_provisioning/playbook.yml
+ubuntu1804 run ansible-playbook -i ./wls_provisioning/hosts ./wls_provisioning/playbook.yml
 
 # Enable UAC
 Enable-UAC
