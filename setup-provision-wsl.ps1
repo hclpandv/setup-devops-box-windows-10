@@ -124,6 +124,8 @@ Ubuntu1804 install --root
 Ubuntu1804 run apt update
 Ubuntu1804 run apt upgrade -y
 ubuntu1804 config --default-user root
+
+cd $ScriptDir
 $ubuntu_scriptdir =  $(ubuntu1804 run pwd)
 
 # Install python
@@ -140,6 +142,8 @@ ubuntu1804 run apt-get install ansible -y
 
 # Copy wsl-provisoning folder in Distro (Must be git cloned in advance)
 # git clone https://vpandey6@bitbucket.org/patpol/wls_provisioning.git
+
+
 if(Test-Path $ScriptDir\wls_provisioning){
    ubuntu1804.exe run cp -R $ubuntu_scriptdir/wls_provisioning ~    
 }
